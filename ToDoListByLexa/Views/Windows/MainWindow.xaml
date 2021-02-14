@@ -11,7 +11,33 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="файл">
+                <MenuItem Header="Выход"/>
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="О программе"/>
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem MinWidth="120">
+                <TextBlock Text="{Binding Status}" />
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar Width="120" Height="14" Value="30" />
+            </StatusBarItem>
+
+        </StatusBar>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="121*"/>
+                <RowDefinition Height="300*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="163*"/>
+                <ColumnDefinition Width="637*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </DockPanel>
 </Window>

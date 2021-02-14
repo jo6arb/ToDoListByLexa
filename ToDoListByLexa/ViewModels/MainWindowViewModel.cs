@@ -18,5 +18,24 @@ namespace ToDoListByLexa.ViewModels
         }
 
         #endregion
+
+        #region Status : string - статус программы
+
+
+        /// <summary>
+        /// Статус программы
+        /// </summary>
+        private string _status = "Готов!";
+
+        /// <summary>
+        /// Статус программы
+        /// </summary>
+        public string Status
+        {
+            get => _status;
+            set => Set(ref _status, value);
+        }
+
+        #endregion
     }
 }
