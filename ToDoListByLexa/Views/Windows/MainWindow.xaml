@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:ToDoListByLexa.ViewModels"
         xmlns:l="clr-namespace:ToDoListByLexa.Views.Windows"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="{Binding Title}" 
         Height="450" Width="800">
@@ -12,14 +13,19 @@
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <DockPanel>
+        <!--#region Меню главного окна -->
+        
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="файл">
-                <MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}"/>
-            </MenuItem>
-            <MenuItem Header="Помощь">
-                <MenuItem Header="О программе"/>
+            <MenuItem Header="файл" Height="25">
+                <MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}" Height="25"/>
+            </MenuItem >
+            <MenuItem Header="Помощь" Height="25">
+                <MenuItem Header="О программе" Height="25"/>
             </MenuItem>
         </Menu>
+        <!--#endregion-->
+        <!--#region СтатусБар -->
+        
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem MinWidth="120">
                 <TextBlock Text="{Binding Status}" />
@@ -27,17 +33,46 @@
             <StatusBarItem>
                 <ProgressBar Width="120" Height="14" Value="30" />
             </StatusBarItem>
-
         </StatusBar>
+        <!--#endregion-->
+
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="121*"/>
                 <RowDefinition Height="300*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="163*"/>
-                <ColumnDefinition Width="637*"/>
+                <ColumnDefinition Width="179*"/>
+                <ColumnDefinition Width="621*"/>
             </Grid.ColumnDefinitions>
+            <!--#region Левое меню окна -->
+            
+            <StackPanel Orientation="Vertical" Grid.Column="0"
+                        Grid.RowSpan="2" Grid.Row="0" Background="#FF222222">
+                <ListView x:Name="Menu" Margin="0 70 0 0">
+                    <ListViewItem Height="60" Foreground="LightGray">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CalendarTask"/>
+                            <TextBlock Text="Назначенные задания" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" Foreground="LightGray">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CalendarTask"/>
+                            <TextBlock Text="Выполненные задания" />
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+
+            <!--#endregion-->
+            <!--#region Правая часть окна -->
+            <Grid Grid.RowSpan="2" Grid.Row="0" Grid.Column="1">
+
+            </Grid>
+            <!--#endregion-->
         </Grid>
+        
     </DockPanel>
 </Window>
