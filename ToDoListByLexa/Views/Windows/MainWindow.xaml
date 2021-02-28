@@ -14,7 +14,7 @@
     </Window.DataContext>
     <DockPanel>
         <!--#region Меню главного окна -->
-        
+
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="файл" Height="25">
                 <MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}" Height="25"/>
@@ -25,7 +25,7 @@
         </Menu>
         <!--#endregion-->
         <!--#region СтатусБар -->
-        
+
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem MinWidth="120">
                 <TextBlock Text="{Binding Status}" />
@@ -36,20 +36,16 @@
         </StatusBar>
         <!--#endregion-->
 
-        
+
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="121*"/>
-                <RowDefinition Height="300*"/>
-            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="179*"/>
-                <ColumnDefinition Width="621*"/>
+                <ColumnDefinition Width="187*"/>
+                <ColumnDefinition Width="613*"/>
             </Grid.ColumnDefinitions>
             <!--#region Левое меню окна -->
-            
+
             <StackPanel Orientation="Vertical" Grid.Column="0"
-                        Grid.RowSpan="2" Grid.Row="0" Background="#FF222222">
+                        Background="#FF222222">
                 <ListView x:Name="Menu" Margin="0 70 0 0">
                     <ListViewItem Height="60" Foreground="LightGray">
                         <StackPanel Orientation="Horizontal">
@@ -68,11 +64,38 @@
 
             <!--#endregion-->
             <!--#region Правая часть окна -->
-            <Grid Grid.RowSpan="2" Grid.Row="0" Grid.Column="1">
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="111*"/>
+                    <RowDefinition Height="281*"/>
+                </Grid.RowDefinitions>
+                <!--#region Панель навигации -->
+                <WrapPanel Grid.Row="0" HorizontalAlignment="Left">
+                    <StackPanel  Orientation="Horizontal"  MinWidth="150" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                        <TextBlock Text="Дата  внесения"/>
+                        <DatePicker IsDropDownOpen="False" SelectedDateFormat="Short" />
+                    </StackPanel>
+                    <StackPanel  Orientation="Horizontal"  MinWidth="150" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                        <TextBlock Text="Дата  контроля"/>
+                        <DatePicker SelectedDateFormat="Short" IsDropDownOpen="False"  />
+                    </StackPanel>
 
+                    <StackPanel  Orientation="Horizontal"  MinWidth="150" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                        <TextBlock Text="Название"/>
+                        <TextBox  MinWidth="150"/>
+                    </StackPanel>
+                    <StackPanel  Orientation="Horizontal"  MinWidth="150" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                        <TextBlock Text="Категория задачи"/>
+                        <ComboBox MinWidth="140" />
+                    </StackPanel>
+                    <Button Content="Найти" Margin="30 0 0 0"/>
+                </WrapPanel>
+                <!--#endregion-->
+                <!--#region Список задач -->
+                <!--#endregion-->
             </Grid>
             <!--#endregion-->
         </Grid>
-        
+
     </DockPanel>
 </Window>
