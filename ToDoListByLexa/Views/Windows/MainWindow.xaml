@@ -88,10 +88,12 @@
                         <TextBlock Text="Категория задачи"/>
                         <ComboBox MinWidth="140" />
                     </StackPanel>
-                    <Button Content="Найти" Margin="30 0 0 0"/>
+                    <Button Content="Найти" Margin="30 0 0 0" Click="ButtonBase_OnClick" Command="{Binding CloseApplicationCommand}"/>
                 </WrapPanel>
                 <!--#endregion-->
                 <!--#region Список задач -->
+
+                
                 <!--#endregion-->
             </Grid>
             <!--#endregion-->

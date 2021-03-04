@@ -65,6 +65,7 @@ namespace ToDoListByLexa.ViewModels
 
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
 
+
             #endregion
         }
     }
