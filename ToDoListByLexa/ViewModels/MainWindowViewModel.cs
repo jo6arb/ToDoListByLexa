@@ -39,6 +39,8 @@ namespace ToDoListByLexa.ViewModels
             set => Set(ref _status, value);
         }
 
+        public CreateTaskViewModel CreateTask { get; set; }
+
         #endregion
 
         #region Команды
@@ -65,6 +67,7 @@ namespace ToDoListByLexa.ViewModels
 
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
 
+            CreateTask = new CreateTaskViewModel();
 
             #endregion
         }

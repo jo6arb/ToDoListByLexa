@@ -14,9 +14,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBox Text="test" Grid.Row="0"/>
-        <TextBox Text="tests"  Grid.Row="1"/>
+        <TextBox Text="{Binding Headline}" Grid.Row="0"/>
+        <TextBox Text="{Binding DateAddTask}"  Grid.Row="1"/>
         <DatePicker Grid.Row="2"/>
-        <Button Content="Создать"  Grid.Row="3"/>
+        <Button Content="Создать"  Grid.Row="3" Command="{Binding CreateTaskCommand}"/>
     </Grid>
 </UserControl>

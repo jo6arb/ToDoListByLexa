@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:ToDoListByLexa.ViewModels"
         xmlns:l="clr-namespace:ToDoListByLexa.Views.Windows"
+        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:userControls="clr-namespace:ToDoListByLexa.Views.UserControls"
         mc:Ignorable="d"
         Title="{Binding Title}" 
         Height="450" Width="800">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
+    
     <DockPanel>
         <!--#region Меню главного окна -->
 
@@ -39,8 +42,9 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="187*"/>
-                <ColumnDefinition Width="613*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <!--#region Левое меню окна -->
 
@@ -92,10 +96,11 @@
                 </WrapPanel>
                 <!--#endregion-->
                 <!--#region Список задач -->
-
+                
                 
                 <!--#endregion-->
             </Grid>
+            <userControls:CreateTaskView Grid.Column="2" DataContext="{Binding CreateTask}"/>
             <!--#endregion-->
         </Grid>
 
