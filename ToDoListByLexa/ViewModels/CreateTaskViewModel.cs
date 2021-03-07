@@ -15,7 +15,7 @@ namespace ToDoListByLexa.ViewModels
         public string Headline
         {
             get => _headline;
-            set { Set(ref _headline, value); }
+            set => Set(ref _headline, value); 
         }
 
         private DateTime _dateAddTask;
@@ -23,7 +23,7 @@ namespace ToDoListByLexa.ViewModels
         public DateTime DateAddTask
         {
             get => _dateAddTask;
-            set { Set(ref _dateAddTask, value); }
+            set => Set(ref _dateAddTask, value); 
         }
 
         private string _description;
@@ -31,7 +31,7 @@ namespace ToDoListByLexa.ViewModels
         public string Description
         {
             get => _description;
-            set { Set(ref _description, value); }
+            set => Set(ref _description, value); 
         }
 
         public ICommand CreateTaskCommand { get; private set; }

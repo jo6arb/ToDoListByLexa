@@ -15,8 +15,8 @@
         </Grid.RowDefinitions>
 
         <TextBox Text="{Binding Headline}" Grid.Row="0"/>
-        <TextBox Text="{Binding DateAddTask}"  Grid.Row="1"/>
-        <DatePicker Grid.Row="2"/>
+        <TextBox Text="Дата добавления"  Grid.Row="1"/>
+        <DatePicker Grid.Row="2" DisplayDate="{Binding DateAddTask}"/>
         <Button Content="Создать"  Grid.Row="3" Command="{Binding CreateTaskCommand}"/>
     </Grid>
 </UserControl>
