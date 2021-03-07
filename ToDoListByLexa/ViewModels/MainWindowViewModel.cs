@@ -40,6 +40,7 @@ namespace ToDoListByLexa.ViewModels
         }
 
         public CreateTaskViewModel CreateTask { get; set; }
+        public FullTaskViewModel FullTask { get; set; }
 
         #endregion
 
@@ -66,10 +67,12 @@ namespace ToDoListByLexa.ViewModels
             #region Команды
 
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+            #endregion
 
             CreateTask = new CreateTaskViewModel();
+            FullTask = new FullTaskViewModel();
 
-            #endregion
+            
         }
     }
 }

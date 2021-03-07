@@ -9,14 +9,15 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <TextBox Text="{Binding Headline}" Grid.Row="0"/>
         <TextBox Text="Дата добавления"  Grid.Row="1"/>
-        <DatePicker Grid.Row="2" DisplayDate="{Binding DateAddTask}"/>
+        <DatePicker Grid.Row="1" DisplayDate="{Binding DateAddTask}"/>
+        <TextBox Text="{Binding Description}" Grid.Row="2"/>
         <Button Content="Создать"  Grid.Row="3" Command="{Binding CreateTaskCommand}"/>
     </Grid>
 </UserControl>
