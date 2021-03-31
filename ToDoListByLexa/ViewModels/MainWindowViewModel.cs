@@ -41,6 +41,7 @@ namespace ToDoListByLexa.ViewModels
 
         public CreateTaskViewModel CreateTask { get; set; }
         public FullTaskViewModel FullTask { get; set; }
+        public ShortInfotaskViewModel ShortTask { get; set; }
 
         #endregion
 
