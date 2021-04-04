@@ -15,7 +15,7 @@ namespace ToDoListByLexa.ViewModels
             set 
             {
                 _headline = value;
-                RaisePropertyChanged(() => _headline);
+                RaisePropertyChanged(() => Headline);
             } 
         }
 
@@ -27,7 +27,7 @@ namespace ToDoListByLexa.ViewModels
             set 
             {
                 _dateAddTask = value;
-                RaisePropertyChanged(() => _dateAddTask);
+                RaisePropertyChanged(() => DateAddTask);
             }
         }
 
@@ -39,7 +39,7 @@ namespace ToDoListByLexa.ViewModels
             set 
             {
                 _description = value;
-                RaisePropertyChanged(() => _description);                
+                RaisePropertyChanged(() => Description);                
             } 
         }
 

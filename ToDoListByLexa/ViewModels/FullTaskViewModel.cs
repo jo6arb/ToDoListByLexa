@@ -1,19 +1,22 @@
-﻿using System;
+﻿using MvvmCross.Commands;
+using MvvmCross.ViewModels;
+using System;
 using System.Windows;
-using System.Windows.Input;
-using ToDoListByLexa.Infrastructure.Commands;
-using ToDoListByLexa.ViewModels.Base;
 
 namespace ToDoListByLexa.ViewModels
 {
-    internal class FullTaskViewModel : ViewModel
+    internal class FullTaskViewModel : MvxViewModel
     {
         private string _headline;
 
         public string Headline
         {
             get => _headline;
-            set => Set(ref _headline, value);
+            set 
+            {
+                _headline = value;
+                RaisePropertyChanged(() => Headline);
+            }
         }
 
         private DateTime _dateAddTask;
@@ -21,7 +24,11 @@ namespace ToDoListByLexa.ViewModels
         public DateTime DateAddTask
         {
             get => _dateAddTask;
-            set => Set(ref _dateAddTask, value);
+            set 
+            {
+                _dateAddTask = value;
+                RaisePropertyChanged(() => DateAddTask);
+            }
         }
 
         private DateTime _dateSuccessTask;
@@ -29,7 +36,11 @@ namespace ToDoListByLexa.ViewModels
         public DateTime DateSuccessTask
         {
             get => _dateSuccessTask;
-            set => Set(ref _dateSuccessTask, value);
+            set 
+            {
+                _dateSuccessTask = value;
+                RaisePropertyChanged(() => DateSuccessTask);
+            }
         }
 
         private DateTime _dateControlTask;
@@ -37,7 +48,11 @@ namespace ToDoListByLexa.ViewModels
         public DateTime DateControlTask
         {
             get => _dateControlTask;
-            set => Set(ref _dateControlTask, value);
+            set 
+            {
+                _dateControlTask = value;
+                RaisePropertyChanged(() => DateControlTask);
+            }
         }
 
         private byte _priority;
@@ -45,7 +60,11 @@ namespace ToDoListByLexa.ViewModels
         public byte Priority
         {
             get => _priority;
-            set => Set(ref _priority, value); 
+            set 
+            {
+                _priority = value;
+                RaisePropertyChanged(() => Priority);
+            } 
 
         }
 
@@ -54,19 +73,23 @@ namespace ToDoListByLexa.ViewModels
         public string Description
         {
             get => _description;
-            set => Set(ref _description, value);
+            set 
+            {
+                _description = value;
+                RaisePropertyChanged(() => Description);
+            }
         }
 
-        public ICommand ChangeTaskCommand { get; private set; }
+        public IMvxCommand ChangeTaskCommand { get; private set; }
 
-        private void ChangeTask(object parameter)
+        private void ChangeTask()
         {
             MessageBox.Show("test");
         }
 
         public FullTaskViewModel()
         {
-            ChangeTaskCommand = new LambdaCommand(ChangeTask);
+            ChangeTaskCommand = new MvxCommand(ChangeTask);
         }
     }
 }
