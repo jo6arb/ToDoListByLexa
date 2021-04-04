@@ -1,19 +1,22 @@
-﻿using System;
+﻿using MvvmCross.Commands;
+using MvvmCross.ViewModels;
+using System;
 using System.Windows;
-using System.Windows.Input;
-using ToDoListByLexa.Infrastructure.Commands;
-using ToDoListByLexa.ViewModels.Base;
 
 namespace ToDoListByLexa.ViewModels
 {
-    internal class CreateTaskViewModel : ViewModel
+    internal class CreateTaskViewModel : MvxViewModel
     {
         private string _headline;
 
         public string Headline
         {
             get => _headline;
-            set => Set(ref _headline, value); 
+            set 
+            {
+                _headline = value;
+                RaisePropertyChanged(() => _headline);
+            } 
         }
 
         private DateTime _dateAddTask;
@@ -21,7 +24,11 @@ namespace ToDoListByLexa.ViewModels
         public DateTime DateAddTask
         {
             get => _dateAddTask;
-            set => Set(ref _dateAddTask, value); 
+            set 
+            {
+                _dateAddTask = value;
+                RaisePropertyChanged(() => _dateAddTask);
+            }
         }
 
         private string _description;
@@ -29,19 +36,23 @@ namespace ToDoListByLexa.ViewModels
         public string Description
         {
             get => _description;
-            set => Set(ref _description, value); 
+            set 
+            {
+                _description = value;
+                RaisePropertyChanged(() => _description);                
+            } 
         }
 
-        public ICommand CreateTaskCommand { get; private set; }
+        public IMvxCommand CreateTaskCommand { get; private set; }
 
-        private void CreateTask(object parameter)
+        private void CreateTask()
         {
             MessageBox.Show("Test test");
         }
 
         public CreateTaskViewModel()
         {
-            CreateTaskCommand = new LambdaCommand(CreateTask);
+            CreateTaskCommand = new MvxCommand(CreateTask);
         }
     }
 }
