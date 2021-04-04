@@ -1,19 +1,22 @@
-﻿using System;
+﻿using MvvmCross.Commands;
+using MvvmCross.ViewModels;
+using System;
 using System.Windows;
-using System.Windows.Input;
-using ToDoListByLexa.Infrastructure.Commands;
-using ToDoListByLexa.ViewModels.Base;
 
 namespace ToDoListByLexa.ViewModels
 {
-    internal class ShortInfotaskViewModel : ViewModel
+    internal class ShortInfotaskViewModel : MvxViewModel
     {
         private string _headline;
 
         public string Headline
         {
             get => _headline;
-            set => Set(ref _headline, value);
+            set  
+            {
+                _headline = value;
+                RaisePropertyChanged(() => Headline);
+            }
         }
 
         private DateTime _dateControlTask;
@@ -21,7 +24,11 @@ namespace ToDoListByLexa.ViewModels
         public DateTime DateControlTask
         {
             get => _dateControlTask;
-            set => Set(ref _dateControlTask, value);
+            set  
+            {
+                _dateControlTask = value;
+                RaisePropertyChanged(() => DateControlTask);
+            }
         }
 
 
@@ -30,19 +37,23 @@ namespace ToDoListByLexa.ViewModels
         public string Description
         {
             get => _description;
-            set => Set(ref _description, value);
+            set  
+            {
+                _description = value;
+                RaisePropertyChanged(() => Description);
+            }
         }
 
-        public ICommand SuccessTaskCommand { get; private set; }
+        public IMvxCommand SuccessTaskCommand { get; private set; }
 
-        private void SuccessTask(object paramert)
+        private void SuccessTask()
         {
             MessageBox.Show("test");
         }
 
         public ShortInfotaskViewModel()
         {
-            SuccessTaskCommand = new LambdaCommand(SuccessTask);
+            SuccessTaskCommand = new MvxCommand(SuccessTask);
         }
 
     }
