@@ -1,11 +1,10 @@
-﻿using System.Windows;
-using System.Windows.Input;
-using ToDoListByLexa.Infrastructure.Commands;
-using ToDoListByLexa.ViewModels.Base;
+﻿using MvvmCross.Commands;
+using MvvmCross.ViewModels;
+using System.Windows;
 
 namespace ToDoListByLexa.ViewModels
 {
-    internal class MainWindowViewModel : ViewModel
+    internal class MainWindowViewModel : MvxViewModel
     {
         #region Заговок окна
 
@@ -17,7 +16,11 @@ namespace ToDoListByLexa.ViewModels
         public string Title
         {
             get => _title;
-            set => Set(ref _title, value);
+            set 
+            {
+                _title = value;
+                RaisePropertyChanged(() => Title);
+            }
         }
 
         #endregion
@@ -36,7 +39,11 @@ namespace ToDoListByLexa.ViewModels
         public string Status
         {
             get => _status;
-            set => Set(ref _status, value);
+            set
+            {
+                _status = value;
+                RaisePropertyChanged(() => Status);
+            }
         }
 
         public CreateTaskViewModel CreateTask { get; set; }
@@ -49,11 +56,11 @@ namespace ToDoListByLexa.ViewModels
 
         #region CloseApplicationCommand
 
-        public ICommand CloseApplicationCommand { get; }
+        public IMvxCommand CloseApplicationCommand { get; }
 
-        private bool CanCloseApplicationCommandExecute(object p) => true;
+        private bool CanCloseApplicationCommandExecute() => true;
 
-        private void OnCloseApplicationCommandExecuted(object p)
+        private void OnCloseApplicationCommandExecuted()
         {
             Application.Current.Shutdown();
         }
@@ -67,7 +74,7 @@ namespace ToDoListByLexa.ViewModels
         {
             #region Команды
 
-            CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+            CloseApplicationCommand = new MvxCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
             #endregion
 
             CreateTask = new CreateTaskViewModel();
