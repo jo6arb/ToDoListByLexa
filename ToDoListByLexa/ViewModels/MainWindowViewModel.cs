@@ -1,5 +1,7 @@
 ﻿using MvvmCross.Commands;
+using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace ToDoListByLexa.ViewModels
@@ -46,9 +48,10 @@ namespace ToDoListByLexa.ViewModels
             }
         }
 
-        public CreateTaskViewModel CreateTask { get; set; }
-        public FullTaskViewModel FullTask { get; set; }
-        public ShortInfotaskViewModel ShortTask { get; set; }
+        //public CreateTaskViewModel CreateTask { get; set; }
+       // public FullTaskViewModel FullTask { get; set; }
+       // public ShortInfotaskViewModel ShortTask { get; set; }
+        private readonly IMvxNavigationService _navigationService;
 
         #endregion
 
@@ -69,18 +72,17 @@ namespace ToDoListByLexa.ViewModels
         #endregion
 
         #endregion
+        public override async Task Initialize() => await base.Initialize();
 
         public MainWindowViewModel()
         {
-            #region Команды
+         
+        }
 
+        public MainWindowViewModel(IMvxNavigationService navigationService)
+        {
             CloseApplicationCommand = new MvxCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
-            #endregion
-
-            CreateTask = new CreateTaskViewModel();
-            FullTask = new FullTaskViewModel();
-
-            
+            _navigationService = navigationService;
         }
     }
 }
