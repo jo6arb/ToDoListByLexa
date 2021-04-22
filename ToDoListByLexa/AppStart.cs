@@ -2,6 +2,7 @@
 using MvvmCross.ViewModels;
 using System;
 using System.Threading.Tasks;
+using ToDoListByLexa.ViewModels;
 
 namespace ToDoListByLexa
 {
@@ -18,7 +19,7 @@ namespace ToDoListByLexa
 
         protected override async Task NavigateToFirstViewModel(object hint = null)
         {
-            //await _navigationService.Navigate<MainWindowViewModel>();
+            await _navigationService.Navigate<MainScreenViewModel>();
         }
     }
 }

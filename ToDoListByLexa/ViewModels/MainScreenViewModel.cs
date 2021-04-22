@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace ToDoListByLexa.ViewModels
 {
-    internal class MainWindowViewModel : MvxViewModel
+    internal class MainScreenViewModel : MvxViewModel
     {
         #region Заговок окна
 
@@ -74,12 +74,12 @@ namespace ToDoListByLexa.ViewModels
         #endregion
         public override async Task Initialize() => await base.Initialize();
 
-        public MainWindowViewModel()
+        public MainScreenViewModel()
         {
          
         }
 
-        public MainWindowViewModel(IMvxNavigationService navigationService)
+        public MainScreenViewModel(IMvxNavigationService navigationService)
         {
             _navigationService = navigationService;
         }
