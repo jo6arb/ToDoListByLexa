@@ -1,11 +1,12 @@
-﻿using System.Windows.Controls;
+﻿using MvvmCross.Platforms.Wpf.Views;
+using System.Windows.Controls;
 
 namespace ToDoListByLexa.Views.UserControls
 {
     /// <summary>
     /// Логика взаимодействия для CreateTaskView.xaml
     /// </summary>
-    public partial class CreateTaskView : UserControl
+    public partial class CreateTaskView : MvxWpfView
     {
         public CreateTaskView()
         {
