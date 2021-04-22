@@ -81,7 +81,6 @@ namespace ToDoListByLexa.ViewModels
 
         public MainWindowViewModel(IMvxNavigationService navigationService)
         {
-            CloseApplicationCommand = new MvxCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
             _navigationService = navigationService;
         }
     }
