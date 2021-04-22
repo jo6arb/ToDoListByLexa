@@ -1,12 +1,16 @@
 ﻿using MvvmCross.Commands;
+using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using System;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace ToDoListByLexa.ViewModels
 {
     internal class CreateTaskViewModel : MvxViewModel
     {
+        private readonly IMvxNavigationService _navigationService;
+
         private string _headline;
 
         public string Headline
@@ -43,16 +47,19 @@ namespace ToDoListByLexa.ViewModels
             } 
         }
 
-        public IMvxCommand CreateTaskCommand { get; private set; }
+        public IMvxCommand CreateTaskCommand => new MvxCommand(CreateTask);
+
+        public override async Task Initialize() => await base.Initialize();
 
         private void CreateTask()
         {
             MessageBox.Show("Test test");
         }
 
-        public CreateTaskViewModel()
+        public CreateTaskViewModel() { }
+        public CreateTaskViewModel(IMvxNavigationService navigationService)
         {
-            CreateTaskCommand = new MvxCommand(CreateTask);
+            _navigationService = navigationService;
         }
     }
 }
