@@ -56,7 +56,6 @@ namespace ToDoListByLexa.ViewModels
             MessageBox.Show("Test test");
         }
 
-        public CreateTaskViewModel() { }
         public CreateTaskViewModel(IMvxNavigationService navigationService)
         {
             _navigationService = navigationService;
