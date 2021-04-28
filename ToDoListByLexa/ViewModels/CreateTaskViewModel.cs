@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace ToDoListByLexa.ViewModels
 {
-    internal class CreateTaskViewModel : MvxViewModel
+    public class CreateTaskViewModel : MvxViewModel
     {
         private readonly IMvxNavigationService _navigationService;
 
