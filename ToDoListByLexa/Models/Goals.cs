@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace ToDoListByLexa.Models
 {
-    internal class Goals
+    internal class Goals : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -17,5 +20,7 @@ namespace ToDoListByLexa.Models
         public byte Priority { get; set; }
 
         public string Note { get; set; }
+
+        
     }
 }
