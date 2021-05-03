@@ -11,43 +11,9 @@ namespace ToDoListByLexa.ViewModels
     {
         private readonly IMvxNavigationService _navigationService;
 
-        private string _headline;
-
-        public string Headline
-        {
-            get => _headline;
-            set 
-            {
-                _headline = value;
-                RaisePropertyChanged(() => Headline);
-            } 
-        }
-
-        private DateTime _dateAddTask;
-
-        public DateTime DateAddTask
-        {
-            get => _dateAddTask;
-            set 
-            {
-                _dateAddTask = value;
-                RaisePropertyChanged(() => DateAddTask);
-            }
-        }
-
-        private string _description;
-
-        public string Description
-        {
-            get => _description;
-            set 
-            {
-                _description = value;
-                RaisePropertyChanged(() => Description);                
-            } 
-        }
-
         public IMvxCommand CreateTaskCommand => new MvxCommand(CreateTask);
+
+        internal GoalViewModel GoalVM { get; set; }
 
         public override async Task Initialize() => await base.Initialize();
 
@@ -59,6 +25,7 @@ namespace ToDoListByLexa.ViewModels
         public CreateTaskViewModel(IMvxNavigationService navigationService)
         {
             _navigationService = navigationService;
+            GoalVM = new GoalViewModel();
         }
     }
 }
