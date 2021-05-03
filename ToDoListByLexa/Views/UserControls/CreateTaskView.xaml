@@ -17,7 +17,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <TextBlock Text="Название задачи" Margin="5"/>
-            <TextBox x:Name="NameTask" />
+            <TextBox x:Name="NameTask" Text="{Binding GoalVM.Headline}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1">
             <TextBlock Text="Дата контроля" Margin="5"/>
