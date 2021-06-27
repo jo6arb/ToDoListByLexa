@@ -17,15 +17,21 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <TextBlock Text="Название задачи" Margin="5"/>
-            <TextBox x:Name="NameTask" Text="{Binding GoalVM.Headline}" />
+            <TextBox x:Name="NameTask" MinWidth="200" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1">
             <TextBlock Text="Дата контроля" Margin="5"/>
-            <DatePicker x:Name="DateControlTask"/>
-            
+            <DatePicker x:Name="DateControlTask" MinWidth="150"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Описание" x:Name="Description" />
+            <TextBox/>
+        </StackPanel>
+        <StackPanel x:Name="GroupButtons" Grid.Row="3" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Content="Создать"   Command="{Binding CreateTaskCommand}" Margin="0 0 10 10"/>
+            <Button Content="Отмена" Command="{Binding BackToMainMenuCommand}" Margin="0 0 10 10"/>
         </StackPanel>
         
-        <TextBox Text="{Binding Description}" Grid.Row="2"/>
-        <Button Content="Создать"  Grid.Row="3" Command="{Binding CreateTaskCommand}"/>
     </Grid>
 </views:MvxWpfView>

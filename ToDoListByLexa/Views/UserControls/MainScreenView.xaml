@@ -10,7 +10,7 @@
         Height="450" Width="800">
         
     <DockPanel>
-        <!--#region Меню главного окна -->
+        <!--#region Меню главного окна  -->
 
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="файл" Height="25">
@@ -90,7 +90,9 @@
                 </WrapPanel>
                 <!--#endregion-->
                 <!--#region Список задач -->
-
+                <DataGrid Grid.Row="1" ItemsSource="{Binding moreTaskCollection}">
+                    
+                </DataGrid>
                 <Button Grid.Row="1" Content="Добавить задачу" Command="{Binding GoToCreateNewTaskCommand}"/>
                 <!--#endregion-->
                 
