@@ -14,7 +14,7 @@ namespace ToDoListByLexa.Models
 
         public DateTime DateSuccessGoal { get; set; }
 
-        public DateTime DateConrtolGoal { get; set; }
+        public DateTime DateContolGoal { get; set; }
 
         public byte Priority { get; set; }
 

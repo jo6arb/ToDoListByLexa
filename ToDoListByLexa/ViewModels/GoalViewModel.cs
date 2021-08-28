@@ -1,24 +1,22 @@
 ﻿using MvvmCross.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using ToDoListByLexa.Models;
 
 namespace ToDoListByLexa.ViewModels
 {
     internal class GoalViewModel : MvxViewModel
     {
 
-        #region headline
-        private string _headline;
+        #region Name
 
-        public string Headline
+        private string _name;
+
+        public string Name
         {
-            get => _headline;
+            get => _name;
             set
             {
-                _headline = value;
-                RaisePropertyChanged(() => Headline);
+                _name = value;
+                RaisePropertyChanged(() => Name);
             }
         }
         #endregion
@@ -37,16 +35,58 @@ namespace ToDoListByLexa.ViewModels
         }
         #endregion
 
-        #region Deskription
-        private string _description;
+        #region DateSuccessTask
+        private DateTime _dateSuccessTask;
 
-        public string Description
+        public DateTime DateSuccessTask
         {
-            get => _description;
+            get => _dateSuccessTask;
             set
             {
-                _description = value;
-                RaisePropertyChanged(() => Description);
+                _dateAddTask = value;
+                RaisePropertyChanged(() => DateSuccessTask);
+            }
+        }
+        #endregion
+        #region DateControlTask
+        private DateTime _dateControlTask;
+
+        public DateTime DateControlTask
+        {
+            get => _dateControlTask;
+            set
+            {
+                _dateAddTask = value;
+                RaisePropertyChanged(() => DateControlTask);
+            }
+        }
+        #endregion
+
+        #region Priority
+        private byte _priority;
+
+        public byte Priority
+        {
+            get => _priority;
+            set
+            {
+                _priority = value;
+                RaisePropertyChanged(() => Priority);
+            }
+        }
+        #endregion
+
+
+        #region Note
+        private string _note;
+
+        public string Note
+        {
+            get => _note;
+            set
+            {
+                _note = value;
+                RaisePropertyChanged(() => Note);
             }
         }
 #endregion
