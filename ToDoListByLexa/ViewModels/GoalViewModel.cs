@@ -6,6 +6,21 @@ namespace ToDoListByLexa.ViewModels
     internal class GoalViewModel : MvxViewModel
     {
 
+        #region Id
+
+        private int _id;
+
+        public int Id
+        {
+            get => _id;
+            set
+            {
+                _id = value;
+                RaisePropertyChanged(() => Id);
+            }
+        }
+        #endregion
+        
         #region Name
 
         private string _name;
@@ -48,6 +63,7 @@ namespace ToDoListByLexa.ViewModels
             }
         }
         #endregion
+
         #region DateControlTask
         private DateTime _dateControlTask;
 
@@ -75,8 +91,7 @@ namespace ToDoListByLexa.ViewModels
             }
         }
         #endregion
-
-
+        
         #region Note
         private string _note;
 
@@ -90,7 +105,6 @@ namespace ToDoListByLexa.ViewModels
             }
         }
 #endregion
-
-
+        
     }
 }

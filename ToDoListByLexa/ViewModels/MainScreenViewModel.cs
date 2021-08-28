@@ -6,13 +6,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using ToDoListByLexa.Models;
 
 namespace ToDoListByLexa.ViewModels
 {
     internal class MainScreenViewModel : MvxViewModel
     {
-        public ObservableCollection<Goals> moreTaskCollection { get; }
+        public ObservableCollection<GoalViewModel> moreTaskCollection { get; }
         #region Status : string - статус программы
 
 
@@ -59,15 +58,15 @@ namespace ToDoListByLexa.ViewModels
         {
             _navigationService = navigationService;
             var id = 1;
-            var goals = Enumerable.Range(1, 10).Select(i => new Goals
+            var goals = Enumerable.Range(1, 10).Select(i => new GoalViewModel
             {
-                DateAddGoal = DateTime.Now,
-                DateConrtolGoal = DateTime.Now,
-                DateSuccessGoal = DateTime.Now,
+                DateAddTask = DateTime.Now,
+                DateControlTask = DateTime.Now,
+                DateSuccessTask = DateTime.Now,
                 Id = i++,
                 Name = $"Задача №{i}"
             });
-            moreTaskCollection = new ObservableCollection<Goals>(goals);
+            moreTaskCollection = new ObservableCollection<GoalViewModel>(goals);
         }
         private async Task GoToCreateTaskAsync() => await _navigationService.Navigate<CreateTaskViewModel>();
     }
