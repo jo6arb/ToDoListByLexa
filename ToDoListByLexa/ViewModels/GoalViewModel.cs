@@ -9,7 +9,6 @@ namespace ToDoListByLexa.ViewModels
     internal class GoalViewModel : MvxViewModel
     {
 
-        internal Goals Goal { get; set; }
         #region headline
         private string _headline;
 
@@ -51,11 +50,6 @@ namespace ToDoListByLexa.ViewModels
             }
         }
 #endregion
-
-        public GoalViewModel()
-        {
-            Goal = new Goals();
-        }
 
 
     }

@@ -3,9 +3,8 @@ using System.ComponentModel;
 
 namespace ToDoListByLexa.Models
 {
-    internal class Goals : INotifyPropertyChanged
+    public class Goals
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public int Id { get; set; }
 
