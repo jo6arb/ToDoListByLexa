@@ -90,10 +90,18 @@
                 </WrapPanel>
                 <!--#endregion-->
                 <!--#region Список задач -->
-                <DataGrid Grid.Row="1" ItemsSource="{Binding moreTaskCollection}">
+                <DockPanel Grid.Row="1">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Bottom" >
+                        <Button Content="Добавить задачу" Command="{Binding GoToCreateNewTaskCommand}"/>
+                    </StackPanel>
                     
-                </DataGrid>
-                <Button Grid.Row="1" Content="Добавить задачу" Command="{Binding GoToCreateNewTaskCommand}"/>
+                    <DataGrid  ItemsSource="{Binding moreTaskCollection}"
+                               >
+
+                    </DataGrid>
+                </DockPanel>
+               
+                
                 <!--#endregion-->
                 
             </Grid>
